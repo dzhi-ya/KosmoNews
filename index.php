@@ -50,111 +50,45 @@
 				
 	
 
-		<!-- $row=0; $row<6; $row++ -->
 
-		<!-- && $row['id_news']<7 -->
-		
 		<?php
-                function printResult($result_set) {
-									while (($row  =  $result_set->fetch_assoc()) !=false && $row['id_news']<7  ) {
-										
-                      echo("											
-											<div class='news-card card m-1 mb-4 shadow-sm col-xs-12 '>
-											<div class='card-header d-flex flex-wrap  justify-content-between align-items-center'>
-												<p class=''>".$row['putdate']."</p>
-												<a href='user.php'>".$row['nickname']."</a>
-											</div>
-											<div class='card-body d-flex flex-wrap justify-content-between align-items-center'>
-												<img src='img/news/".$row['id_news'].".jpg' border='0' width='100%' height='188'  alt='img' >
-												<div class='list-unstyled mt-3 mb-4'>
-													<h4 class='my-0 mb-2 font-weight-bold'>".$row['heading']."</h4>
-													<p class='mb-3'>".mb_substr($row['story'], 0, 241)."....</p>
-												</div>
-												
-												<a href='new.php?id=".$news[$i]['id_news']."' class='btn btn-lg btn-block btn-outline-primary'>Подробнее</a>
-											</div>
-										</div>																		
-											"); 
-                      
-                  }
-                }
-
-                $mysqli = mysqli_connect('localhost', 'root', 'root', 'news');
-                if( mysqli_connect_errno() )
-                return 'Ошибка подключения к БД: '.mysqli_connect_error();
-
-								$mysqli->query ("SET NAMES 'utf8'");
+			// $resul = $mysqli->query("SELECT * FROM `news` ORDER BY `id_news` LIMIT 6");
+			include('blocks/news-b.php');
+			
+			echo("<section class='container mb-5'>");
+			echo("<div class='places__caption'>");
+			echo("<h2 class='places__title section-title'>Новости</h2>");
+			echo("<a href='news.php' class='places__view-all'>Смотреть все</a>");
+			echo("</div>");
+			echo("<div class='d-flex flex-wrap'>");
+			$result_set = $mysqli->query("SELECT * FROM `news`");
+			printResult($result_set);
+			echo("</div>");
+			echo("</section>");
+			
+			
+		?>
+		
+		
 
 
 
-
-								echo("<section class='container mb-5'>");
-								echo("<div class='places__caption'>");
-								echo("<h2 class='places__title section-title'>Новости</h2>");
-								echo("<a href='news.php' class='places__view-all'>Смотреть все</a>");
-								echo("</div>");
-                echo("<div class='d-flex flex-wrap'>");
-                $result_set = $mysqli->query("SELECT * FROM `news`");
-                printResult($result_set);
-								echo("</div>");
-								echo("</section>");
-								
-								?>	
+		<?php
+			include('blocks/articles-b.php');
 
 
+			echo("<section class='container mb-5 places'>");
+			echo("<div class='places__caption'>");
+			echo("<h2 class='places__title section-title'>Статьи</h2>");
+			echo("<a href='articles.php' class='places__view-all'>Смотреть все</a>");
+			echo("</div>");
+			echo("<div class='places__cards'>");
+			$resulte_set = $mysqli->query("SELECT * FROM `articles` LIMIT 5");
+			printResulte($resulte_set);
+			echo("</div>");
+			echo("</section>");
 
-				<?php
-                function printResulte($resulte_set) {
-									while (($rowe  =  $resulte_set->fetch_assoc()) !=false && $rowe['id_art']<6  ) {
-										if ($rowe['id_art'] == 1 or $rowe['id_art'] == 2) {
-											echo("											
-											<div class='places__card places__card-size-lg'>
-											<img src='img/articles/".$rowe['id_art'].".jpg' alt='img' class='places__card-pic places__card-pic-size-sm'>
-											<h3 class='places__card-title'>
-											".$rowe['heading']."
-											</h3>
-											<a href='article.php' class='places__card-link'></a>
-											</div>																		
-											");
-										}
-										else {
-											echo("											
-											<div class='places__card places__card-size-sm '>
-											<img src='img/articles/".$rowe['id_art'].".jpg' alt='img' class='places__card-pic places__card-pic-size-sm'>
-											<h3 class='places__card-title'>
-											".$rowe['heading']."
-											</h3>
-											<a href='article.php' class='places__card-link'></a>
-											</div>																		
-											");
-										}
- 
-                      
-                  }
-                }
-
-                $mysqli = mysqli_connect('localhost', 'root', 'root', 'news');
-                if( mysqli_connect_errno() )
-                return 'Ошибка подключения к БД: '.mysqli_connect_error();
-
-								$mysqli->query ("SET NAMES 'utf8'");
-
-
-
-
-								echo("<section class='container mb-5 places'>");
-								echo("<div class='places__caption'>");
-								echo("<h2 class='places__title section-title'>Статьи</h2>");
-								echo("<a href='articles.php' class='places__view-all'>Смотреть все</a>");
-								echo("</div>");
-								// echo("<div class='d-flex flex-wrap'>");
-								echo("<div class='places__cards'>");
-                $resulte_set = $mysqli->query("SELECT * FROM `articles`");
-                printResulte($resulte_set);
-								echo("</div>");
-								echo("</section>");
-								
-								?>	
+		?>
 
 
 
@@ -167,6 +101,10 @@
 			include('blocks/footer.php');
 		?>
 	</footer>
+
+	<?php
+			include('script.php');
+		?>
 
 
 </body>

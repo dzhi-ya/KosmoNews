@@ -21,6 +21,24 @@
 				<h1 class="heading__title">Новостной портал "KosmoNews"</h1>
 			</div>
 		</div>
+
+
+		<?php
+			include('blocks/articles-b.php');
+
+
+			echo("<section class='container mb-5 places'>");
+			echo("<div class='places__caption'>");
+			echo("<h2 class='places__title section-title'>Статьи</h2>");
+			echo("</div>");
+			echo("<div class='places__cards'>");
+			$resulte_set = $mysqli->query("SELECT * FROM `articles`");
+			printResulte($resulte_set);
+			echo("</div>");
+			echo("</section>");
+
+		?>
+
 </main>
 
 <footer>
@@ -28,6 +46,10 @@
 			include('blocks/footer.php');
 		?>
 	</footer>
+
+	<?php
+			include('script.php');
+		?>
 	
 </body>
 </html>

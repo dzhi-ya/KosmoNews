@@ -114,6 +114,10 @@
 			include('blocks/footer.php');
 		?>
 	</footer>
+
+	<?php
+			include('script.php');
+		?>
 	
 </body>
 </html>
