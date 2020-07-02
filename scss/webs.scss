@@ -1,0 +1,576 @@
+@import "reset";
+
+@mixin fontz($f, $c) {
+	font-size: $f;
+	color: $c;
+}
+
+%widthcenter {
+	width: 100%;
+	margin: 0 auto;
+}
+
+$colors: (
+	// one: #6668d3,
+	one: rgb(126, 132, 209),
+	two: rgba(126, 132, 209, 0.425),
+	three: #fff,
+);
+
+// @use "sass:color";
+
+html {
+	box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: "Nunito", sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+}
+
+.section-title {
+	font-weight: 500;
+	font-size: 35px;
+	line-height: 42px;
+	position: relative;
+	padding-bottom: 10px;
+}
+
+.section-title::after {
+	display: block;
+	content: "";
+	width: 253px;
+	height: 3px;
+	background-color: map-get($colors, one);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.header {
+	.wrapper {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		align-items: center;
+		height: 100px;
+		padding-top: 0;
+	}
+
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	&__left-nav {
+		text-align: end;
+		background: map-get($colors, two);
+		padding: 5px;
+	}
+
+	&__right-nav {
+		background: map-get($colors, two);
+		padding: 5px;
+	}
+
+	&__item {
+		list-style-type: none;
+		font-weight: bold;
+	}
+
+	&__link {
+		@include fontz(20px, #433840);
+		text-decoration: none;
+	}
+
+	&__link:hover,
+	&__link:active {
+		color: map-get($colors, one);
+		background: rgb(126, 132, 209);
+		color: #fff;
+		// padding: 5px;
+		// border-radius: 40%;
+	}
+
+	&__logo {
+		display: flex;
+		justify-content: center;
+	}
+
+	&__logo-link {
+	}
+
+	&__logo-pic {
+	}
+
+	.active {
+		color: map-get($colors, one);
+		color: #fff;
+	}
+
+	.active:hover {
+		color: #fff;
+	}
+}
+
+.wrapper {
+	max-width: 900px / 1920px * 100%;
+	@extend %widthcenter;
+}
+
+.main {
+}
+
+.heading {
+	.wrapper-full {
+		max-width: 1820px / 1920px * 100%;
+		@extend %widthcenter;
+		background: url(../img/kosm.jpg) no-repeat center;
+
+		box-shadow: inset 0px 0px 40px 40px #fff;
+
+		height: 400px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		margin-bottom: 70px;
+	}
+
+	&__title {
+		font-weight: bold;
+		@include fontz(50px, #fff);
+		line-height: 62px;
+
+		background: rgba(126, 132, 209, 0.425);
+	}
+
+	&__subtitle {
+		font-family: "Waiting for the Sunrise", cursive;
+		font-style: normal;
+		font-weight: 300;
+		@include fontz(30px, #fff);
+		line-height: 50px;
+	}
+}
+
+
+
+// bootstrap start
+
+.news-card {
+	width: 32%;
+	margin-left: 0.5%;
+	margin-right: 0.5%;
+}
+.card-new {
+	width: 90%;
+}
+
+.btn {
+	color: map-get($colors, one);
+	border: 1.5px solid map-get($colors, one);
+}
+.btn:hover {
+	background: map-get($colors, one);
+	border: 1.5px solid map-get($colors, one);
+}
+
+// bootstrap end
+
+.places {
+
+	&__caption {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 36px;
+	}
+
+	&__title {
+		margin-right: 15px;
+	}
+
+	&__view-all {
+		line-height: 24px;
+		color: map-get($colors, one);
+		text-decoration: none;
+		padding-right: 59px;
+		background: url(../img/svg/arrow-right-ico.svg) no-repeat right center;
+	}
+
+	&__view-all:hover {
+		opacity: 0.65;
+	}
+
+	&__cards {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		grid-gap: 10px;
+	}
+
+	&__card {
+		position: relative;
+		overflow: hidden;
+	}
+
+	&__card::after {
+		display: block;
+		content: "";
+		width: 100%;
+		height: 100%;
+		background-color: rgba(21, 24, 36, 0.4);
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 2;
+	}
+
+	&__card:hover &__card-pic {
+		transform: scale(1.05);
+	}
+
+	&__card-size-lg {
+		grid-column: span 3;
+	}
+
+	&__card-pic {
+		width: 100%;
+		transition: 0.2s all;
+	}
+
+	&__card-pic-size-lg {
+		height: 354px;
+		object-fit: cover;
+	}
+
+	&__card-title {
+		font-weight: bold;
+		font-size: 25px;
+		// line-height: 60px;
+		text-align: center;
+		color: #ffffff;
+		position: absolute;
+		bottom: 27px;
+		left: 29px;
+		z-index: 3;
+	}
+
+	&__card-link {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 4;
+	}
+
+	&__card-size-sm {
+		grid-column: span 2;
+	}
+
+	&__card-pic-size-sm {
+		height: 283px;
+		object-fit: cover;
+	}
+}
+
+
+
+
+.footer {
+	background: map-get($colors, two);
+	// min-height: 40px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__title {
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 42px;
+		position: relative;
+		padding-bottom: 10px;
+		// color: #fff;	
+	}
+}
+
+
+// .intro {
+// 	&__wrap {
+// 		max-width: 1000px;
+// 		@extend %widthcenter;
+// 		height: 520px;
+// 		display: flex;
+// 		justify-content: space-between;
+// 		margin-bottom: 60px;
+// 	}
+
+// 	&__cards {
+// 		display: flex;
+// 		flex-direction: column;
+// 		justify-content: space-between;
+// 	}
+
+// 	&__card {
+// 		max-width: 336px;
+// 		width: 100%;
+// 	}
+
+// 	&__card-title {
+// 		font-size: 30px;
+// 		line-height: 37px;
+// 		color: #433840;
+// 		margin-bottom: 22px;
+// 	}
+
+// 	&__card-desc {
+// 		line-height: 24px;
+// 		color: #9a9a9a;
+// 	}
+// }
+
+// .stats {
+// 	&__wrap {
+// 		max-width: 1820px / 1920px * 100%;
+// 		@extend %widthcenter;
+// 		background: url(../img/stats.png) no-repeat center;
+// 		height: 620px;
+// 		display: flex;
+// 		align-items: center;
+// 		justify-content: center;
+// 		margin-bottom: 60px;
+// 	}
+
+// 	&__cards {
+// 		max-width: 900px;
+// 		width: 100%;
+// 		display: flex;
+// 		justify-content: space-between;
+// 	}
+
+// 	&__card {
+// 		display: flex;
+// 		flex-direction: column;
+// 		justify-content: space-between;
+// 	}
+
+// 	&__card-pic,
+// 	&__card-thumb,
+// 	&__card-title,
+// 	&__card-desc {
+// 		display: flex;
+// 		justify-content: center;
+// 	}
+
+// 	&__card-thumb {
+// 	}
+
+// 	&__card-title {
+// 		font-family: Waiting for the Sunrise;
+// 		font-style: normal;
+// 		font-weight: 300;
+// 		font-size: 60px;
+// 		color: #dfeeb6;
+// 	}
+
+// 	&__card-desc {
+// 		font-weight: bold;
+// 		font-size: 20px;
+// 		line-height: 25px;
+// 		color: #ffffff;
+// 	}
+// }
+
+// .team {
+// 	&__wrap {
+// 		max-width: 1000px;
+// 		@extend %widthcenter;
+// 		margin-bottom: 150px;
+// 	}
+
+// 	&__title {
+// 		text-align: center;
+// 		font-weight: bold;
+// 		font-size: 50px;
+// 		line-height: 62px;
+// 		color: #433840;
+// 	}
+
+// 	&__subtitle {
+// 		text-align: center;
+// 		font-family: Waiting for the Sunrise;
+// 		font-style: normal;
+// 		font-weight: 300;
+// 		font-size: 30px;
+// 		line-height: 50px;
+// 		color: #f7a1a8;
+// 		margin-bottom: 60px;
+// 	}
+
+// 	&__cards {
+// 		display: flex;
+// 		flex-wrap: wrap;
+// 	}
+
+// 	&__card {
+// 		width: 390px;
+// 		height: 380px;
+// 		width: calc(50% - 165px);
+
+// 		background: #dfeeb6;
+// 		border-radius: 5px;
+// 		margin-bottom: 40px;
+// 		display: flex;
+// 		flex-direction: column;
+// 		justify-content: center;
+// 	}
+
+// 	&__card-1,
+// 	&__card-4 {
+// 		background: #c9e3f4;
+// 	}
+
+// 	&__card-1,
+// 	&__card-2 {
+// 		display: flex;
+// 		align-items: flex-end;
+// 		margin-left: 165px;
+// 	}
+
+// 	&__card-3,
+// 	&__card-4 {
+// 		display: flex;
+// 		align-items: flex-start;
+// 		margin-right: 165px;
+// 		text-align: right;
+// 	}
+
+// 	&__card-title,
+// 	&__card-subtitle,
+// 	&__card-desc,
+// 	&__card-pic {
+// 		margin: 0 20px;
+// 	}
+
+// 	&__card-title {
+// 		font-weight: bold;
+// 		font-size: 30px;
+// 		line-height: 37px;
+// 		color: #ffffff;
+// 		width: 194px;
+// 	}
+
+// 	&__card-subtitle {
+// 		font-weight: 300;
+// 		font-size: 20px;
+// 		line-height: 25px;
+// 		color: #433840;
+// 		margin-bottom: 14px;
+// 		width: 190px;
+// 	}
+
+// 	&__card-desc {
+// 		font-weight: 300;
+// 		font-size: 15px;
+// 		line-height: 25px;
+// 		color: #433840;
+// 		width: 190px;
+// 		margin-bottom: 8px;
+// 	}
+
+// 	&__card-pic {
+// 		width: 190px;
+// 	}
+
+// 	&__card-thumb {
+// 	}
+// }
+
+// .footer {
+// 	background: #433840;
+// 	min-height: 440px;
+
+// 	&__item {
+// 	}
+
+// 	&__nav {
+// 		display: flex;
+// 		justify-content: space-between;
+// 	}
+
+// 	&__menu {
+// 	}
+
+// 	&__menu-item {
+// 		@include fontz(20px, #fff);
+// 		line-height: 35px;
+// 	}
+
+// 	&__menu-title {
+// 		font-weight: bold;
+// 		@include fontz(30px, #fff);
+// 		line-height: 37px;
+// 		margin-bottom: 25px;
+// 	}
+
+// 	&__menu-item-time {
+// 		@include fontz(20px, #dfeeb6);
+// 	}
+
+// 	&__menu-link-1,
+// 	&__menu-link-2,
+// 	&__menu-link-3 {
+// 		@include fontz(20px, #fff);
+// 		text-decoration: none;
+// 		margin-left: 8px;
+// 	}
+
+// 	&__menu-link-1 {
+// 		font-weight: bold;
+// 	}
+
+// 	&__menu-link-2 {
+// 		text-decoration: underline;
+// 	}
+
+// 	&__menu-blocks {
+// 		display: grid;
+// 		grid-template-columns: repeat(3, 1fr);
+// 		grid-gap: 25px;
+// 	}
+
+// 	&__menu-block {
+// 		width: 95px;
+// 		height: 95px;
+// 		background: adjust-hue(#6b717f, 60deg);
+// 		border-radius: 5px;
+// 	}
+// }
+
+// .wrapper {
+// 	max-width: 1000px;
+// 	@extend %widthcenter;
+// 	padding-top: 80px;
+// }
+
+
+@media screen and (max-width: 960px) {
+	.news-card {
+		width: 45%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.news-card {
+		width: 95%;
+	}
+}
