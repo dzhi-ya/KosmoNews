@@ -1,0 +1,9 @@
+ALTER TABLE `news` ADD CONSTRAINT `news_fk0` FOREIGN KEY (`nickname`) REFERENCES `user`(`nickname`);
+
+ALTER TABLE `connect` ADD CONSTRAINT `connect_fk0` FOREIGN KEY (`id_art`) REFERENCES `articles`(`id_art`);
+
+ALTER TABLE `connect` ADD CONSTRAINT `connect_fk1` FOREIGN KEY (`id_cat`) REFERENCES `categories`(`id_cat`);
+
+ALTER TABLE `comments` ADD CONSTRAINT `comments_fk0` FOREIGN KEY (`nickname`) REFERENCES `user`(`nickname`);
+
+ALTER TABLE `comments` ADD CONSTRAINT `comments_fk1` FOREIGN KEY (`id_art`) REFERENCES `articles`(`id_art`);
