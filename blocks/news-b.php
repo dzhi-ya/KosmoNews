@@ -75,12 +75,10 @@
                 return 'Ошибка подключения к БД: '.mysqli_connect_error();
 
 								$mysqli->query ("SET NAMES 'utf8'");
-								?>
+					
 
 
-
-
-								<?php
+								
 								// echo("<section class='container mb-5'>");
 								// echo("<div class='places__caption'>");
 								// echo("<h2 class='places__title section-title'>Новости</h2>");

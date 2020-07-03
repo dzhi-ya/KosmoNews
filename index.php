@@ -61,7 +61,7 @@
 			echo("<a href='news.php' class='places__view-all'>Смотреть все</a>");
 			echo("</div>");
 			echo("<div class='d-flex flex-wrap'>");
-			$result_set = $mysqli->query("SELECT * FROM `news`");
+			$result_set = $mysqli->query("SELECT * FROM `news` LIMIT 6");
 			printResult($result_set);
 			echo("</div>");
 			echo("</section>");
