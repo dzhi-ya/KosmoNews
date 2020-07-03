@@ -85,18 +85,7 @@
 								$mysqli->query ("SET NAMES 'utf8'");
 
 
-								 // поиск
-								 if( isset($_POST['srcBtn']) && $_POST['srcBtn']== 'Найти')
-								 {
-									 echo("<div class='d-flex flex-wrap'>");
-									 $result_set = $mysqli->query("SELECT * FROM `news` WHERE `story` OR `heading` OR `nikname` OR `putdate` LIKE '%".$_POST['search']."%'");
-									 printResult($result_set);
-									 echo("</div>");
-				 
-										 if( mysqli_errno($mysqli) )
-										 echo '<div class="alert alert-danger mt-5">Произошла ошибка</div>';
-								 }
-
+								 
 
 								echo("<section class='container mb-5'>");
 								echo("<h2 class='section-title mb-4'>Новости космоса</h2>");

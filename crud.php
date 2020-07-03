@@ -53,22 +53,22 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col">
-                <h2 class="my-3 places__title section-title">Новости (реализация CRUD)</h2>
+                <h2 class="my-3 places__title section-title">Реализация CRUD (таблица новости)</h2>
             </div>
         </div>
 
         <div class="row">
-                <form class="w-100" action="crud.php" method="post">
-                    <div class="container-fluid  d-flex flex-wrap flex-row">
-                        <div class="form-group w-sm-100 w-mb-50 mx-5">
+                <form class="" action="crud.php" method="post">
+                    <div class="container-fluid  d-flex">
+                        <div class="form-group m-4">
                             <label for="heading">Заголовок</label>
                             <input type="text" class="form-control" id="heading" placeholder="Про что расскажете?" name="heading">
                         </div>
-                        <div class="form-group w-sm-100 w-mb-50 mx-5">
+                        <div class="form-group m-4">
                             <label for="nickname">Ваш никнейм</label>
                             <input type="text" class="form-control" id="nickname" placeholder="Никнейм" name="name">
 												</div>
-												<div class="form-group w-sm-100 w-mb-50 mx-5">
+												<div class="form-group m-4">
                             <label for="story">Содержание</label>
                             <textarea type="text" class="form-control" id="story" placeholder="Что расскажете?" name="story"></textarea>
                         </div>
@@ -76,13 +76,10 @@
                     </div>
 
                     <div class="">
-                        <div class="col-lg-5 col-md-0 col-sm-0"></div>
                         <div class="col-lg-6 d-flex flex-column w-lg-50 w-md-75 w-sm-100 ">
-                            <div class="d-flex flex-column flex-lg-row flex-xl-row">
-                                <input type="submit" class="btn btn-outline-primary col-12 col-lg-6 col-xl-6 mr-1 mb-3 mb-lg-0 mb-xl-0" name="save" value="Добавить">
-                                <input type="button" class="btn btn-outline-primary col-12 col-lg-6 col-xl-6" value="Редактировать" name="ed" data-toggle="modal" data-target="#editModal">
-                            </div>
-                            <a class="btn btn-outline-primary my-3 w-100" data-toggle="collapse" href="#collapse" aria-expanded="false" aria-controls="collapse">Удалить новость</a>
+                                <input type="submit" class="btn btn-outline-primary my-2 w-100" name="save" value="Добавить">
+                                <input type="button" class="btn btn-outline-primary my-2 w-100" value="Редактировать" name="ed" data-toggle="modal" data-target="#editModal">
+                            <a class="btn btn-outline-primary my-2 w-100" data-toggle="collapse" href="#collapse" aria-expanded="false" aria-controls="collapse">Удалить новость</a>
                             <input type="submit" class="btn btn-outline-primary w-100" value="Показать новости" name="show">
                         </div>
                         <div class="col-lg-1 col-md-0 col-sm-0"></div>  
