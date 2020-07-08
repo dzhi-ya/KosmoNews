@@ -1,3 +1,7 @@
+<?php
+include('functions.php');
+?>
+
 <!doctype html>
 <html lang="ru">
 <head>
@@ -66,7 +70,7 @@
                         </div>
                         <div class="form-group m-4">
                             <label for="nickname">Ваш никнейм</label>
-                            <input type="text" class="form-control" id="nickname" placeholder="Никнейм" name="name">
+                            <input type="text" class="form-control" id="nickname" placeholder="Никнейм" name="nickname">
 												</div>
 												<div class="form-group m-4">
                             <label for="story">Содержание</label>
@@ -88,7 +92,7 @@
                     <!-- CARD FOR DELETE -->
                     <div class="collapse mt-3" id="collapse">
                         <div class="card card-body">
-                            <label for="id">Номер строки</label>
+                            <label for="id">Введите id новости</label>
                             <input type="text" class="form-control" id="id" name="id">
                             <input type="submit" class="btn btn-danger mt-3" name="delete" value="Удалить">
                         </div>
@@ -130,7 +134,7 @@
 
                             </div>
                             <div class="modal-footer">
-                            <input type="submit" class="btn btn-info" name="edit" value="Сохранить изменения">
+                            <input type="submit" class="btn btn-outline-primary" name="edit" value="Сохранить изменения">
                             </div>
                             </div>
                         </div>
@@ -144,7 +148,7 @@
         <?php
 
             
-            $mysqli = mysqli_connect('localhost', 'root', 'root', 'news');
+            $mysqli = $database;
             if( mysqli_connect_errno() ) 
             return 'Ошибка подключения к БД: '.mysqli_connect_error();
 
@@ -172,7 +176,7 @@
                         </tr>');
                 }
                 echo("<tr>
-                        <th colspan='6'>Общее количество новостей</th>
+                        <th colspan='4'>Общее количество новостей</th>
                         <th>".$result_set->num_rows."</th>
                     </tr>");
             }
@@ -197,7 +201,7 @@
                         <tbody>");
                 printResult($result_set);
                 echo("</tbody></table></div>");
-                echo("<form action='crud.php' method='post'><input type='submit' class='btn btn-secondary' name='close' value='Скрыть'></form>");
+                echo("<form action='crud.php' method='post'><input type='submit' class='btn  btn-outline primary' name='close' value='Скрыть'></form>");
 
                 if( mysqli_errno($mysqli) )
                 echo '<div class="alert alert-danger mt-5">Произошла ошибка</div>';

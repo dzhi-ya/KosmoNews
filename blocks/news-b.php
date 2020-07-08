@@ -1,4 +1,7 @@
 <?php
+include('functions.php');
+?>
+<?php
                 function printResult($result_set) {
 									while (($row  =  $result_set->fetch_assoc()) !=false) {
 										
@@ -70,7 +73,7 @@
                   }
                 }
 
-                $mysqli = mysqli_connect('localhost', 'root', 'root', 'news');
+                $mysqli = $database;
                 if( mysqli_connect_errno() )
                 return 'Ошибка подключения к БД: '.mysqli_connect_error();
 

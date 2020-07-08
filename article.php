@@ -1,24 +1,5 @@
 <?php
-// include('functions.php');
-
-// $art = mysqli_fetch_all(mysqli_query($database, 'SELECT * FROM `articles` INNER JOIN `comments` ON (articles.id_art = comments.id_art) INNER JOIN `user` ON (user.nickname = comments.nickname) INNER JOIN `connect` ON ( (articles.id_art = categories.id_art) AND (categories.id_cat = categories.id_cat) )'), MYSQLI_BOTH);
-// INNER JOIN `connect` ON (articles.id_art = connect.id_art) INNER JOIN `category` (connect.id_cat = categories.id_cat)
-// $art = mysqli_fetch_all(mysqli_query($database, 'SELECT * FROM `articles` INNER JOIN `comments` ON (articles.id_art = comments.id_art) INNER JOIN `user` ON (user.nickname = comments.nickname) INNER JOIN `connect` ON ( (articles.id_art = connect.id_art) AND (categories.id_cat = categories.id_cat) )'), MYSQLI_BOTH);
-
-
-// $post = mysqli_fetch_all(mysqli_query($database, 'SELECT * FROM `articles` INNER JOIN `user` ON (news.nickname = user.nickname) WHERE id_news = ' . $_GET[id_news] . ' ORDER BY id_news DESC'), MYSQLI_BOTH);
-
-
-
-
-// "SELECT * FROM `articles` INNER  JOIN `comments` ON (articles.id_art = comments.id_art) INNER JOIN `user` ON (user.nickname = comments.nickname) INNER JOIN `connect` ON (articles.id_art = connect.id_art) INNER JOIN `categories` (connect.id_cat = categories.id_cat) "
-
-
-
-
-
-// "SELECT * FROM `categories` INNER JOIN `connect` ON (connect.id_cat = categories.id_cat) INNER  JOIN `articles` ON (articles.id_art = connect.id_art) INNER  JOIN `comments` ON (articles.id_art = comments.id_art) INNER JOIN `user` ON (user.nickname = comments.nickname)"
-
+include('functions.php');
 ?>
 
 
@@ -99,7 +80,7 @@
                   }
                 }
 
-                $mysqli = mysqli_connect('localhost', 'root', 'root', 'news');
+                $mysqli = $database;
                 if( mysqli_connect_errno() )
                 return 'Ошибка подключения к БД: '.mysqli_connect_error();
 

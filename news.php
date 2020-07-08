@@ -1,8 +1,6 @@
 <?php
-$database = mysqli_connect('localhost', 'root', 'root', 'news');
-$news = mysqli_fetch_all(mysqli_query($database, 'SELECT * FROM `news` INNER JOIN `user` ON (news.nickname = user.nickname) ORDER BY news.id_news DESC'), MYSQLI_BOTH);
+include('functions.php');
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">

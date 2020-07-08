@@ -1,4 +1,7 @@
 <?php
+include('functions.php');
+?>
+<?php
                function printResulte($resulte_set) {
 								while (($rowe  =  $resulte_set->fetch_assoc()) !=false  ) {
 									if ($rowe['id_art'] == 1 or $rowe['id_art'] == 2 or $rowe['id_art'] == 6 or $rowe['id_art'] == 7 or $rowe['id_art'] == 11 or $rowe['id_art'] == 12) {
@@ -28,7 +31,7 @@
 								}
 							}
 
-							$mysqli = mysqli_connect('localhost', 'root', 'root', 'news');
+							$mysqli = $database;
 							if( mysqli_connect_errno() )
 							return 'Ошибка подключения к БД: '.mysqli_connect_error();
 

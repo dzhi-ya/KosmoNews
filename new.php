@@ -1,10 +1,6 @@
 <?php
-// include('functions.php');
-// $news = mysqli_fetch_all(mysqli_query($database, 'SELECT * FROM news ORDER BY id_news DESC'), MYSQLI_BOTH);
-// $post = mysqli_fetch_all(mysqli_query($database, 'SELECT * FROM `news` INNER JOIN `user` ON (news.nickname = user.nickname) WHERE id_news = ' . $_GET[id_news] . ' ORDER BY id_news DESC'), MYSQLI_BOTH);
+include('functions.php');
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,24 +33,6 @@
 			</div>
 		</div>
 
-		<!-- <div class="container">
-		<div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="bd-placeholder-img card-imd-top" src="img/news/<? echo ($i +1) ?>.jpg" width="100%" height="300" alt='img' >
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-		</div> -->
-
 		<?php
                 function printResult($result_set) {
 									if (($row  =  $result_set->fetch_assoc()) !=false ) {
@@ -78,7 +56,7 @@
                   }
                 }
 
-                $mysqli = mysqli_connect('localhost', 'root', 'root', 'news');
+                $mysqli = $database;
                 if( mysqli_connect_errno() )
                 return 'Ошибка подключения к БД: '.mysqli_connect_error();
 
